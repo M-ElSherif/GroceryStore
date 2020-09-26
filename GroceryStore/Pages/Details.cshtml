@@ -32,13 +32,13 @@
     <div class="col text-left">
         <form method="post">
             <label for="quantity">Quantity:</label>
-            @*<input type="number" id="quantity" name="quantity" min="1">*@
-            <input asp-for="Quantity" min="1">
+            <input type="number" asp-for="Quantity" min="1">
+            <input type="hidden" asp-for="CurrentFood.Name" value="@Model.CurrentFood.Name" />
+            <input type="hidden" asp-for="CurrentFood.Price" value="@Model.CurrentFood.Price" />
+            <input type="hidden" asp-for="CurrentFood.ImageSrc" value="@Model.CurrentFood.ImageSrc" />
+            <input type="hidden" asp-for="CurrentFood.Desc" value="@Model.CurrentFood.Desc" />
+            <button type="submit" class="btn btn-primary" asp-page-handler="Add">Add to Cart</button>
         </form>
-    </div>
-
-    <div class="col text-right">
-        Total: $<span id="total-price">0.00</span>
     </div>
 
 </div>

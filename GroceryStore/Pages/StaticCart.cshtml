@@ -1,0 +1,26 @@
+﻿@page
+@model GroceryStore.Pages.StaticCartModel
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (KeyValuePair<GroceryStore.Models.GroceryItem, int> item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.Key.Name</td>
+                    <td>@item.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

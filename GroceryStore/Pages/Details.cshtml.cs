@@ -15,14 +15,14 @@ namespace GroceryStore.Pages
     public class DetailsModel : PageModel
     {
         public List<GroceryItem> Foods { get; set; }
+        [BindProperty]
         public GroceryItem CurrentFood { get; set; }
         [BindProperty]
         public int Quantity { get; set; }
-        public double TotalCost { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string name)
         {
-            using (StreamWriter writer = new StreamWriter("log.txt", append:true))
+            using (StreamWriter writer = new StreamWriter("log.txt", append: true))
             {
                 await writer.WriteLineAsync($"{DateTime.Now} {name}");
             }
@@ -33,6 +33,12 @@ namespace GroceryStore.Pages
             {
                 return NotFound();
             }
+            return Page();
+        }
+
+        public IActionResult OnPostAdd()
+        {
+            Cart.AddItem(this.CurrentFood, Quantity);
             return Page();
         }
 

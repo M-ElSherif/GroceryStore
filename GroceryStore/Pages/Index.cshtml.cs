@@ -27,7 +27,8 @@ namespace GroceryStore.Pages
 
         public void OnGet()
         {
-            this.Foods = Inventory.ToList();
+            ViewData["Inventory"] = Inventory.ToList();
+            this.Foods = (List<GroceryItem>)ViewData["Inventory"];
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +37,12 @@ namespace GroceryStore.Pages
             {
                 await writer.WriteLineAsync(this.FirstName + " " + this.LastName);
             }
-            return RedirectToPage("./Index");
+            return Page();
+        }
+
+        public IActionResult OnPostRating()
+        {
+            return Page();
         }
 
     }

@@ -12,6 +12,19 @@ namespace GroceryStore.Models
         public double Price { get; set; }
         public string Desc { get; set; }
 
+        public GroceryItem()
+        {
+
+        }
+
+        public GroceryItem(GroceryItem groceryItem)
+        {
+            this.Name = groceryItem.Name;
+            this.ImageSrc = groceryItem.ImageSrc;
+            this.Price = groceryItem.Price;
+            this.Desc = groceryItem.Desc;
+        }
+
         public GroceryItem(string name = "Not Found", string imgsrc = "/images/blank.png", double price = 0.0, string desc = "n/a")
         {
             Name = name;
