@@ -10,21 +10,32 @@ namespace GroceryStore.Models
     {
         public static Dictionary<GroceryItem, int> CartItems { get; set; } = new Dictionary<GroceryItem, int>();
 
-        public static bool AddItem(GroceryItem item, int qty)
+        public static Dictionary<GroceryItem, int> GetCartItems()
         {
-            CartItems.Add(item, qty);
+            return CartItems;
+        }
+
+        public static Boolean AddToCart(GroceryItem item, int qty)
+        {
+            if (SearchCart(item))
+            {
+                CartItems[item] += qty;
+            }
+            else
+            {
+                CartItems.Add(item, qty);
+            }
             return true;
         }
 
-        public static bool DeleteItem(GroceryItem item, int qty)
+        public static Boolean RemoveFromCart(GroceryItem item, int qty)
         {
-            //TODO: write an algorithm that removes specified qty from the cart for item
             return false;
         }
 
-        public static  Dictionary<GroceryItem, int> ListCartItems()
+        public static Boolean SearchCart(GroceryItem item)
         {
-            return CartItems;
+            return CartItems.ContainsKey(item);
         }
     }
 }

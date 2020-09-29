@@ -32,5 +32,19 @@ namespace GroceryStore.Models
             Price = price;
             Desc = desc;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is GroceryItem item &&
+                   Name == item.Name &&
+                   ImageSrc == item.ImageSrc &&
+                   Price == item.Price &&
+                   Desc == item.Desc;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, ImageSrc, Price, Desc);
+        }
     }
 }

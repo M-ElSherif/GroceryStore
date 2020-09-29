@@ -38,7 +38,7 @@ namespace GroceryStore.Pages
 
         public IActionResult OnPostAdd()
         {
-            Cart.AddItem(this.CurrentFood, Quantity);
+            Cart.AddToCart(this.CurrentFood, Quantity);
             return Page();
         }
 
