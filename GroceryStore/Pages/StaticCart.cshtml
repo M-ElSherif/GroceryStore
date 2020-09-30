@@ -5,30 +5,44 @@
     ViewData["Title"] = "Cart";
 }
 
+@{
+    for (int i = 0; i < Model.CartItems.Count; i++)
+    {
+        <form method="post" id="@(i)_UpdateForm"></form>
+    }
+}
+
 <div>
-    <form method="post">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Item</th>
-                    <th scope="col">Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (KeyValuePair<GroceryStore.Models.GroceryItem, int> item in Model.CartItems)
+    @*<form method="post">*@
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int j = 0;
+                foreach (CartItem cartItem in Model.CartItems)
                 {
                     <tr>
-                        <td>@item.Key.Name</td>
                         <td>
-                            @*<input type-"hidden" value="@item.Key" asp-for="@Model.CartItems["/>*@
-                            <input type="number" value="@item.Value" asp-for="@Model.CartItems[item.Key]" />
-                            @*<button type="submit" asp-page-handler="Change">Update</button>*@
+                            @cartItem.GroceryItem.Name
+                            <input type="hidden" form="@(j)_UpdateForm" value="@cartItem.GroceryItem.Name" asp-for="@Model.CurrentCartItem.GroceryItem.Name" />
+                            <input type="hidden" form="@(j)_UpdateForm" value="@cartItem.GroceryItem.ImageSrc" asp-for="@Model.CurrentCartItem.GroceryItem.ImageSrc" />
+                            <input type="hidden" form="@(j)_UpdateForm" value="@cartItem.GroceryItem.Desc" asp-for="@Model.CurrentCartItem.GroceryItem.Desc" />
+                            <input type="hidden" form="@(j)_UpdateForm" value="@cartItem.GroceryItem.Price" asp-for="@Model.CurrentCartItem.GroceryItem.Price" />
                         </td>
+                        <td><input type="number" form="@(j)_UpdateForm" value="@cartItem.Quantity" asp-for="@Model.NewQty"></td>
+                        <td><button type="submit" form="@(j)_UpdateForm" class="btn btn-primary" asp-page-handler="Update">Update</button></td>
                     </tr>
+                    j++;
                 }
-            </tbody>
-        </table>
-    </form>
+            }
+        </tbody>
+    </table>
+    @*</form>*@
 
     <div>
         <p>Total Cost: $@String.Format("{0:0.00}", Model.TotalCost)</p>

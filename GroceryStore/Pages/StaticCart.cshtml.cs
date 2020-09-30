@@ -13,8 +13,15 @@ namespace GroceryStore.Pages
     public class StaticCartModel : PageModel
     {
         [BindProperty]
-        public Dictionary<GroceryItem, int> CartItems { get; set; }
+        public List<CartItem> CartItems { get; set; }
+        [BindProperty]
+        public CartItem CurrentCartItem { get; set; }
+        [BindProperty]
+        public int NewQty { get; set; }
+        [BindProperty]
+        public int CurrentIndex { get; set; }
         public double TotalCost { get; set; }
+        
 
         public void OnGet()
         {
@@ -22,28 +29,29 @@ namespace GroceryStore.Pages
             this.TotalCost = this.CalcTotalCost();
         }
 
-        public IActionResult OnPostChange()
+        public IActionResult OnPostUpdate()
         {
-            //this.CartItems[]
-            return Page();
+            int index = this.GetGroceryItemIndex(CurrentCartItem.GroceryItem);
+            Cart.CartItems[index].Quantity = this.NewQty;
+            return RedirectToPage("StaticCart");
         }
 
-
+        public int GetGroceryItemIndex(GroceryItem item)
+        {
+            Cart.GetGroceryItemAndIndex(item, out int index, out GroceryItem groceryItem);
+            return index;
+        }
 
         public int GetQuantity(GroceryItem item)
         {
-            if (this.CartItems.ContainsKey(item))
-            {
-                return this.CartItems[item];
-            }
-            return 0;
+            return Cart.GetQuantity(item);
         }
 
         public double CalcTotalCost()
         {
-            foreach (KeyValuePair<GroceryItem, int> item in this.CartItems)
+            foreach (CartItem item in this.CartItems)
             {
-                TotalCost += (item.Key.Price * item.Value);
+                TotalCost += (item.GroceryItem.Price* item.Quantity);
             }
             return TotalCost;
         }
