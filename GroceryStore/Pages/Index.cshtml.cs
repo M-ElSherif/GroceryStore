@@ -20,10 +20,6 @@ namespace GroceryStore.Pages
         public string Feedback { get; set; }
         [BindProperty]
         public List<GroceryItem> Foods { get; set; }
-        [BindProperty]
-        public string FirstName { get; set; }
-        [BindProperty]
-        public string LastName { get; set; }
 
         public void OnGet()
         {
@@ -35,11 +31,12 @@ namespace GroceryStore.Pages
         {
             using (StreamWriter writer = new StreamWriter("suggestions.txt", append: true))
             {
-                await writer.WriteLineAsync(this.FirstName + " " + this.LastName);
+                await writer.WriteLineAsync(this.Feedback + " " + this.Rating);
             }
             return Page();
         }
 
+        //TODO: Refactor or remove
         public IActionResult OnPostRating()
         {
             return Page();

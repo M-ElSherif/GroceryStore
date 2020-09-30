@@ -170,3 +170,41 @@
 9/29/20 12:25:16 PM Organic Honeycrisp Apple
 9/29/20 3:11:43 PM Organic Honeycrisp Apple
 9/29/20 3:11:54 PM Chili Pepper
+9/29/20 4:35:40 PM Organic Honeycrisp Apple
+9/29/20 4:42:46 PM Artichoke
+9/29/20 4:42:53 PM Artichoke
+9/29/20 4:43:54 PM Aubergine
+9/29/20 4:50:49 PM Turkey Bacon
+9/29/20 4:51:00 PM Turkey Bacon
+9/29/20 4:51:13 PM Assorted Candy
+9/29/20 4:55:50 PM Organic Honeycrisp Apple
+9/29/20 4:56:15 PM Hass Avocado
+9/29/20 4:56:23 PM Organic Honeycrisp Apple
+9/29/20 5:01:02 PM Aubergine
+9/29/20 5:01:08 PM Broccoli
+9/29/20 5:51:07 PM Organic Honeycrisp Apple
+9/29/20 5:52:00 PM Organic Honeycrisp Apple
+9/29/20 5:53:28 PM Organic Honeycrisp Apple
+9/29/20 5:54:26 PM Organic Honeycrisp Apple
+9/29/20 6:02:46 PM Organic Honeycrisp Apple
+9/29/20 6:04:46 PM Organic Honeycrisp Apple
+9/29/20 6:06:30 PM Organic Honeycrisp Apple
+9/30/20 10:52:57 AM Organic Honeycrisp Apple
+9/30/20 10:58:11 AM Organic Honeycrisp Apple
+9/30/20 11:06:48 AM Organic Honeycrisp Apple
+9/30/20 11:07:57 AM Organic Honeycrisp Apple
+9/30/20 11:11:36 AM Artichoke
+9/30/20 11:11:47 AM Turkey Bacon
+9/30/20 11:15:33 AM Artichoke
+9/30/20 11:15:37 AM Organic Honeycrisp Apple
+9/30/20 11:47:35 AM Organic Honeycrisp Apple
+9/30/20 11:47:40 AM Hass Avocado
+9/30/20 11:58:05 AM Organic Honeycrisp Apple
+9/30/20 11:58:15 AM Aubergine
+9/30/20 12:17:20 PM Organic Honeycrisp Apple
+9/30/20 12:19:33 PM Aubergine
+9/30/20 12:19:37 PM Organic Honeycrisp Apple
+9/30/20 12:20:24 PM Artichoke
+9/30/20 12:20:28 PM Turkey Bacon
+9/30/20 12:50:07 PM Organic Honeycrisp Apple
+9/30/20 12:50:13 PM Hass Avocado

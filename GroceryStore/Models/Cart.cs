@@ -8,9 +8,9 @@ namespace GroceryStore.Models
 {
     public static class Cart
     {
-        public static Dictionary<GroceryItem, int> CartItems { get; set; } = new Dictionary<GroceryItem, int>();
+        public static List<CartItem> CartItems { get; set; } = new List<CartItem>();
 
-        public static Dictionary<GroceryItem, int> GetCartItems()
+        public static List<CartItem> GetCartItems()
         {
             return CartItems;
         }
@@ -19,23 +19,30 @@ namespace GroceryStore.Models
         {
             if (SearchCart(item))
             {
-                CartItems[item] += qty;
+                CartItems.Find(cartItem => cartItem.GroceryItem.Equals(item)).Quantity += qty;
             }
             else
             {
-                CartItems.Add(item, qty);
+                CartItems.Add(new CartItem(item, qty));
             }
             return true;
         }
 
-        public static Boolean RemoveFromCart(GroceryItem item, int qty)
+        public static void GetGroceryItemAndIndex(GroceryItem item, out int index, out GroceryItem groceryItem)
         {
-            return false;
+            CartItem cartItem = CartItems.Find(cartitem => cartitem.GroceryItem.Equals(item));
+            groceryItem = cartItem.GroceryItem;
+            index = CartItems.IndexOf(cartItem);
+        }
+
+        public static int GetQuantity(GroceryItem item)
+        {
+            return CartItems.Find(cartItem => cartItem.Equals(item)).Quantity;
         }
 
         public static Boolean SearchCart(GroceryItem item)
         {
-            return CartItems.ContainsKey(item);
+            return CartItems.Exists(cartItem => cartItem.GroceryItem.Equals(item));
         }
     }
 }
